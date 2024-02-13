@@ -1,6 +1,7 @@
 package ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.layout.*
@@ -34,7 +35,7 @@ fun Note(
         .fillMaxWidth()
         .heightIn(min = 64.dp)
         .background(Color.White, backgroundShape)
-
+        .clickable(onClick = {onNoteClick(note)})
     ) {
         NoteColor( modifier = Modifier
             .align(Alignment.CenterVertically)
@@ -88,5 +89,5 @@ fun Note(
 @Preview
 @Composable
 fun NotePreview(){
-
+    Note(note = NoteModel(1, "Заметка 1 ", "Содержимое 1", null))
 }
